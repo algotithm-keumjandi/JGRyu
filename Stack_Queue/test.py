@@ -1,6 +1,9 @@
+from sys import stdin
 l =[-1,1, 0]
 print(l[:-1])
 
+rotate_snake = [list(map(lambda x: x, stdin.readline().split())) for i in range(int(input()))]
+print(rotate_snake)
 
 '''
 하좌상우 head_di
@@ -22,9 +25,6 @@ print(l[:-1])
 1 0
 	D: 1 0
 	L: -1 0
-
-
-
 
 아래, D
 head_loc + 0 -1
