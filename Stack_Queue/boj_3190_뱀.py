@@ -25,7 +25,7 @@ for row, col in apple_loc:
 head_loc = [0, 0] # [row, col]
 
 # 처음엔 무조건 [0, 0]에서 [0, 1]로 가야함
-p_to_go = [head_loc[0], head_loc[1] + 1] # place_to_go
+head_to_go = [head_loc[0], head_loc[1] + 1] # 머리가 갈 곳 좌표
 snake = deque([head_loc])
 flag_game = True
 p_time = 0 # play_time
@@ -61,65 +61,79 @@ def results(snake_loc, play_time, cause):
 ########################################################################
 while flag_game:
     # for문 시작하기 전에 head가 갈 방향(상하좌우) 정해주고
-    di_to_go = [p_to_go[0] - head_loc[0], p_to_go[1] - head_loc[1]] # direction_to_go
-
-    # sum(di_to_go) == -1: 머리 방향이 상/우
+    head_di = [head_to_go[0] - head_loc[0], head_to_go[1] - head_loc[1]] # head_direction
+    print(f'head_di: {head_di}')
+    # sum(head_di) == -1: 머리 방향이 상/우
     #               == 1: 머리 방향이 하/좌
     # 상/우 -> D가 +, L이 - 임
     # 하/좌 -> D가 -, L이 + 임
 
-    # 즉 sum(di_to_go) == 1 이면 
+    # 즉 sum(head_di) == 1 이면 
     #   D일 때 갈 방향: [0,-1]/[-1,0], L일 때 갈 방향: [0,1]/[1,0]
-    # sum(di_to_go) == -1 이면
+    # sum(head_di) == -1 이면
     #   D일 때 갈 방향: [0,1]/[1,0], L일 때 갈 방향: [0,-1]/[-1,0]
 
     ########################################################################
-    ### TODO: head가 갈 방향(상하좌우) 정하고, 그에 따라 di_to_go 조정
+    ### TODO: head가 갈 방향(상우/좌하) 정하고, 그에 따라 head_di 조정
     ### 근데 여기서 하는게 맞을진 아직 모름
     ########################################################################
-    print(f'direction_to_go {di_to_go}')
-    if sum(di_to_go) == 1:
-        print("머리방향: 하/좌")
-    else:
-        print("머리방향: 상/우")
+    if sum(head_di) == 1:
+        # print("머리방향: 하/좌")
+        di_to_go = 0 # D는 -, L은 +, direction_to_go
+    else: # sum(head_di) == -1
+        # print("머리방향: 상/우")
+        di_to_go = 1 # D는 +, L은 -
 
     # rotate_snake 만큼 실행하다가 충돌하면 종료
     for st, di in rotate_snake: # straight, direction
-        direction = di # 좌우(D/L) 방향 초기화
-    
+        direction = di
+        for i in range(int(st)):
+            if head_loc != [0,0]:
+                end_condition = (head_to_go in snake) or (head_to_go[0] > bs or head_to_go[0] < 0) or (head_to_go[1] > bs or head_to_go[1] < 0) # 게임 종료 조건
+            else:
+                print("Game Start")
+                end_condition = False
+
+            if end_condition: # 자기 몸 or 벽 충돌 확인
+                print(head_to_go, "head_to_go")
+                # 게임 종료 원인 확인
+                if head_to_go in snake:
+                    cause = 1
+                elif head_to_go[0] > bs or head_to_go[0] < 0:
+                    cause = 2
+                elif head_to_go[1] > bs or head_to_go[1] < 0:
+                    cause = 3
+                results(snake, p_time, cause) # 여기까지는 풀 때 필요없음
+                
+                # 충돌하면 while문, for문 나가기
+                flag_game = False
+                break
+            else:
+                snake.append(head_to_go) # 도착 지점 좌표 append
         
-        if (p_to_go in snake) or (p_to_go[0] > bs) or (p_to_go[1] > bs): # 자기 몸 or 벽 충돌 확인
-            # 게임 종료 원인 확인
-            if p_to_go in snake:
-                cause = 1
-            elif p_to_go[0] > bs:
-                cause = 2
-            elif p_to_go[1] > bs:
-                cause = 3
-            results(snake, p_time, cause) # 여기까지는 풀 때 필요없음
-            
-            # 충돌하면 while문, for문 나가기
-            flag_game = False
-            break
-        else:
-            ########################################################################
-            ### TODO: p_to_go 좌표 계산 필요
-            ########################################################################
-            snake.append(p_to_go) # 도착 지점 좌표 append
-            print(f'{snake} {p_to_go} 뱀, 도착 지점 좌표')
-            if board[p_to_go[0]][p_to_go[1]] == 0: # 도착 지점의 좌표에 사과가 없으면
-                snake.popleft() # 꼬리 pop
-            p_time += 1
+                if board[head_to_go[0]][head_to_go[1]] == 0: # 도착 지점의 좌표에 사과가 없으면
+                    snake.popleft() # 꼬리 pop
+                p_time += 1
+                print(f'{snake} {head_to_go} {head_loc} 뱀, head_to_go, head_loc')
+                head_loc = head_to_go
+                # results(snake, p_time, 1)
+        if di_to_go == 0: # 머리방향: 하/좌
+            if direction == 'D': # minus
+                move_to = [abs(head_di[1]) * -1, abs(head_di[0]) * -1] # head_di 뒤집기
+                head_to_go = [head_loc[0] + move_to[0], head_loc[1] + move_to[1]]
+            else: # plus
+                move_to = [abs(head_di[1]), abs(head_di[0])]
+                head_to_go = [head_loc[0] + move_to[0], head_loc[1] + move_to[1]]
+        else: # 머리방향: 상/우
+            if direction == 'D': # plus
+                move_to = [abs(head_di[1]), abs(head_di[0])]
+                head_to_go = [head_loc[0] + move_to[0], head_loc[1] + move_to[1]]
+            else: # minus
+                move_to = [abs(head_di[1]) * -1, abs(head_di[0]) * -1]
+                head_to_go = [head_loc[0] + move_to[0], head_loc[1] + move_to[1]]
+        print(head_loc, move_to, head_to_go, "현재, 만큼 가야함, 갈 곳")
 
-            head_loc = p_to_go
 
-        ########################################################################
-        ### TODO: p_to_go 계산 여기서 하는게 맞나 체크하고 맞으면 코드수정
-        ########################################################################
-        if direction == 'D':
-            p_to_go = [head_loc[0] + di_to_go[0], head_loc[1] + di_to_go[1]] # 방향에 따라 고쳐야함
-        else:
-            p_to_go = [head_loc[0] + di_to_go[0], head_loc[1] + di_to_go[1]] # 방향에 따라 고쳐야함
 
 
 
