@@ -5,6 +5,6 @@
 
 
 ## [백준](https://www.acmicpc.net)
-[23/12/27_16652번: Email Destruction](https://www.acmicpc.net/problem/16652)
+[23/12/27_16652번: Email Destruction - 실버2](https://www.acmicpc.net/problem/16652)
 
 
