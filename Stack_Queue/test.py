@@ -2,8 +2,12 @@ from sys import stdin
 l =[-1,1, 0]
 print(l[:-1])
 
-rotate_snake = [list(map(lambda x: x, stdin.readline().split())) for i in range(int(input()))]
-print(rotate_snake)
+# rotate_snake = [list(map(lambda x: x, stdin.readline().split())) for i in range(int(input()))]
+# print(rotate_snake)
+
+b = 1
+a = 1 if b == 0 else 2
+print(a)
 
 '''
 하좌상우 head_di
@@ -26,26 +30,32 @@ print(rotate_snake)
 	D: 1 0
 	L: -1 0
 
-아래, D
-head_loc + 0 -1
-아래, L
-head_loc + 0 1
+head_loc = 0 3 일 때
+
+head_di = -1 0
+상 -> D
+0 3 + 0 1
+상 -> L
+0 3 + 0 -1
 
 
-왼, D
-head_loc +  -1 0
-왼, L
-head_loc +  1 0
+head_di = 1 0
+하 -> D
+0 3 + 0 -1
+하 -> L
+0 3 + 0 1
 
 
-위, D
-head_loc + 0 1
-위, L
-head_loc + 0 -1
+head_di = 0 -1
+좌 -> D
+0 3 + -1 0
+좌 -> L
+0 3 + 1 0
 
 
-오른, D
-head_loc +  1 0
-오른, L
-head_loc +  -1 0
+head_di = 0 1
+우 -> D
+0 3 + 1 0
+우 -> L
+0 3 + -1 0
 '''
