@@ -67,10 +67,6 @@ def results(snake_loc, play_time, cause):
 ########################################################################
 # rotate_snake 만큼 실행하다가 충돌하면 종료
 for st, di in rotate_snake: # straight, direction
-    ########################################################################
-    ### TODO: 이 위치가 맞는지 확인 필요
-    ########################################################################
-    # for문 시작하기 전에 head가 갈 방향 정해주고
     head_di = [head_to_go[0] - head_loc[0], head_to_go[1] - head_loc[1]] # head_direction
     print(f'head_di: {head_di}')
     # head_di[0] != 0: 머리 방향이 상/하
