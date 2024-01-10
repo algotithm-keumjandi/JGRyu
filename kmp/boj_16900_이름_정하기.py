@@ -1,39 +1,39 @@
 from sys import stdin
 from collections import deque
+import itertools
+import re
 
 inputs = stdin.readline
 s, k = map(str,inputs().split())
+s_deque1, s_deque2 = deque(s), deque(s)
 
-def name(s, k):
-    s_deque_tmp1, s_deque_tmp2 = deque(s), deque(s)
-    for i in range(len(s)):
-        s_deque_tmp1.popleft()
-        s_deque_tmp2.pop()
-        if s_deque_tmp1 != s_deque_tmp2:
-            continue
-        else:
-            del s_deque_tmp1
-            tmp = ''.join(s_deque_tmp2)
-            del s_deque_tmp2
-            keyword = s.replace(tmp,"",1)
-            total_len = (int(k)-1) * len(keyword) + len(s)
-            return total_len
-total_len = name(s, k)
-del name
-print(total_len)
-# print(''.join(s), len(''.join(s)))
+for _ in range(len(s)):
+    s_deque1.popleft()
+    s_deque2.pop()
+    
+    tf = set(map(lambda x: x[0]==x[1], zip(s_deque1, s_deque2)))
+    if len(tf) == 1 and list(tf)[0] == True:
+        break
+    # if s_deque1 == s_deque2:
+    #     break
+
+len_k = len(s) - len(s_deque2)
+print((int(k)-1) * len_k + len(s))
 
 
 
-# abbababbbbababababba 
-# abbababbbbababababba
-# babbbbababababba
+# table = [0 for _ in range(len(s))]
+# i = 0
+# for j in range(1, len(s)):
+#     while i > 0 and s[i] != s[j]:
+#         i = table[i-1]
+#     if s[i] == s[j]:
+#         i += 1
+#         table[j] = i
 
-# abc abcabcabca
-# abcabcabca
+# print(len(s) + (len(s) - max(table)) * (int(k) - 1))
 
-# abcabcabca bca bca
 
-# abcabca
-# abcabca
+
+
 
