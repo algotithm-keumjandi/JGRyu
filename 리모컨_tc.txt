@@ -1,0 +1,505 @@
+[input]
+10 
+9 
+1 2 3 4 5 6 7 8 9
+[output]
+11
+
+[input]
+101
+0
+[output]
+1
+
+[input]
+99
+10
+0 1 2 3 4 5 6 7 8 9
+[output]
+1
+
+[input]
+0
+0
+[output]
+1
+
+[input]
+500000
+6
+0 1 2 3 4 5
+[output]
+166672
+
+[input]
+0
+2
+0 1
+[output]
+3
+
+[input]
+1555
+8
+0 1 3 4 5 6 7 9
+[output]
+670
+
+[input]
+944 
+7
+2 3 4 5 6 7 9
+[output]
+59
+
+[input]
+6 
+9
+0 2 3 4 5 6 7 8 9
+[output]
+6
+
+[input]
+500000
+10
+0 1 2 3 4 5 6 7 8 9
+[output]
+499900
+
+[input]
+101 
+10
+0 1 2 3 4 5 6 7 8 9
+[output]
+1
+
+[input]
+1
+9
+1 2 3 4 5 6 7 8 9
+[output]
+2
+
+[input]
+99999
+1
+9
+[output]
+7
+
+[input]
+10
+1
+0
+[output]
+2
+
+[input]
+0
+3
+0 1 2
+[output]
+4
+
+[input]
+0
+9
+0 1 2 3 4 5 6 7 8
+[output]
+10
+
+[input]
+0
+10
+0 1 2 3 4 5 6 7 8 9
+[output]
+100
+
+[input]
+1
+9
+1 2 3 4 5 6 7 8 9
+[output]
+2
+
+[input]
+1020
+0
+[output]
+4
+
+[input]
+10 
+2
+0 1
+[output]
+2
+
+[input]
+999
+1
+9
+[output]
+5
+
+[input]
+9990
+8
+1 2 3 4 5 6 7 8
+[output]
+4
+
+[input]
+123
+2
+2 3
+[output]
+7
+
+[input]
+199
+1 
+9
+[output]
+4
+
+[input]
+9
+5
+9 8 7 6 5
+[output]
+3
+
+[input]
+19
+1
+1
+[output]
+3
+
+[input]
+5959
+4
+1 2 3 4 
+[output]
+4
+
+[input]
+56666
+0
+[output]
+5
+
+[input]
+9999
+8
+0 1 2 3 4 5 6 7 
+[output]
+4
+
+[input]
+10
+1
+1 
+[output]
+2
+
+[input]
+190000
+3
+1 2 9 
+[output]
+101117
+
+[input]
+123
+3
+1 2 5 
+[output]
+23
+
+[input]
+1
+9
+0 1 2 3 4 5 6 7 8 
+[output]
+9
+
+[input]
+100
+10
+0 1 2 3 4 5 6 7 8 9 
+[output]
+0
+
+[input]
+99933
+2
+3 9 
+[output]
+73
+
+[input]
+1023
+5
+1 2 3 4 0 
+[output]
+27
+
+[input]
+91010
+2
+1 0 
+[output]
+1016
+
+[input]
+383399
+6
+1 2 3 4 5 7 
+[output]
+216607
+
+[input]
+6711
+2
+1 2 
+[output]
+6
+
+[input]
+330
+4
+0 1 2 3 
+[output]
+117
+
+[input]
+71923
+5
+4 5 6 7 9 
+[output]
+8082
+
+[input]
+123123
+3
+1 2 3 
+[output]
+23129
+
+[input]
+499999
+2
+4 8 
+[output]
+7
+
+[input]
+1111
+9
+1 2 3 4 5 6 7 8 9 
+[output]
+1011
+
+[input]
+1111
+9
+0 1 2 3 4 5 6 7 8 
+[output]
+115
+
+[input]
+34311
+8
+0 1 2 3 4 5 6 7 
+[output]
+24316
+
+[input]
+49445
+7
+1 2 3 4 5 6 7 
+[output]
+30560
+
+[input]
+933
+2
+1 2 
+[output]
+3
+
+[input]
+1617
+3
+1 2 3 
+[output]
+621
+
+[input]
+856
+2
+5 6 
+[output]
+10
+
+[input]
+1023
+8
+1 2 3 4 5 6 7 8 
+[output]
+27
+
+[input]
+10900
+2
+1 0
+[output]
+905
+
+[input]
+394344
+3
+1 2 3 
+[output]
+5662
+
+[input]
+99
+1
+8 
+[output]
+1
+
+[input]
+101
+9
+0 1 2 3 4 5 6 7 8 
+[output]
+1
+
+[input]
+2420
+6
+1 2 3 4 5 6 
+[output]
+1424
+
+[input]
+991
+1
+1 
+[output]
+4
+
+[input]
+30002
+3
+1 3 4 
+[output]
+8
+
+[input]
+1698
+2
+6 9 
+[output]
+6
+
+[input]
+499998
+3
+4 8 9 
+[output]
+8
+
+[input]
+1022
+5
+1 2 3 4 5 
+[output]
+26
+
+[input]
+5457
+3
+6 7 8
+[output]
+6
+
+[input]
+100
+5
+0 1 2 3 4
+[output]
+0
+
+[input]
+500000
+8
+0 2 3 4 6 7 8 9
+[output]
+11117
+
+[input]
+100
+3
+1 0 5
+[output]
+0
+
+[input]
+100
+3
+1 0 5
+[output]
+0
+
+[input]
+14124
+0
+[output]
+5
+
+[input]
+1
+9
+1 2 3 4 5 6 7 8 9
+[output]
+2
+
+[input]
+80000
+2
+8 9
+[output]
+2228
+
+[input]
+5050
+1
+5
+[output]
+55
+
+[input]
+9999
+8
+2 3 4 5 6 7 8 9
+[output]
+6
+
+[input]
+98
+9
+1 2 3 4 5 6 7 8 9
+[output]
+2
+
+[input]
+150
+9
+1 0 3 4 5 6 7 8 9
+[output]
+50
