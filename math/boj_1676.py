@@ -1,3 +1,5 @@
+# Factorial
+
 import math
 N = int(input())
 num = math.factorial(N)
