@@ -123,21 +123,15 @@ dict_tmp = {dis_high: ch_high, dis_high2: ch_high2,  dis_og: ch_og, dis_low: ch_
 dict_dic = dict_tmp.copy()
 
 for i in dict_tmp.items():
-    # print(i[1], "i[1] i[1] ")
     if i[1] in broken_btn:
         dict_dic.pop(i[0])
-
-# print(dict_dic, "tmp1")
 
 # dict안에 아무 것도 없으면
 try:
     close_dis = min(dict_dic)
-    # print(close_dis, "close_dis")
     ch_st = dict_dic[close_dis]
 except:
     ch_st = 0
-
-# print(ch_st, "ch_st1")
 
 # 숫자 다 고장이면 채널 100에서 시작
 if len(broken_btn) == 10:
@@ -156,9 +150,3 @@ else:
     pushed = len(str(ch_st)) + abs(ch_des - ch_st)
 
 print(pushed)
-
-
-
-'''
-
-'''
