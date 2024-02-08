@@ -12,3 +12,4 @@ def solution(n, lost, reserve):
         elif n+1 in lost:
             lost.remove(n+1)
     return answer - len(lost)
+ 
