@@ -1,10 +1,11 @@
 boj_1107_성욱코드.py
 리모컨_tc.txt
-memo.py
 
 Kmp/
 
+memo.py
 tc_test.py
 tc_test2.py
 tmp.py
+tmp2.py
 test.py
